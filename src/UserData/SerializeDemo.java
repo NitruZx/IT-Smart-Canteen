@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class SerializeDemo {
     public SerializeDemo() {
-        readObject();
+        readText();
     }
     public void writeObject() {
         Account account = new Account();
@@ -51,20 +51,22 @@ public class SerializeDemo {
     }
     public void readText() {
         int ch;
-        char[] sentence = new char[100];
+        String[] sentence = new String[100];
+        ArrayList array = new ArrayList();
 //        ArrayList arrayList = new ArrayList<>();
         try {
-            InputStreamReader fileRead = new InputStreamReader(new FileInputStream("text.txt"));
-            fileRead.read(sentence);
-//            while ((ch = fr.read()) != -1) {
-//                arrayList.add((char)ch);
-//            }
+//            InputStreamReader fileRead = new InputStreamReader(new FileInputStream("text.txt"));
+            FileReader fileRead = new FileReader("text.txt");
+//            fileRead.read(sentence);
+            while ((ch = fileRead.read()) != -1) {
+                array.add((char)ch);
+            }
             fileRead.close();
         } catch (Exception e) {
             System.out.println("Error");
             e.printStackTrace();
         } finally {
-            System.out.println(sentence);
+            System.out.println(array);
         }
     }
     public static void main(String[] args) {

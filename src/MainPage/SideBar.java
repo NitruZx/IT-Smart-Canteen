@@ -1,5 +1,7 @@
 package MainPage;
 
+import LoginPage.LoginGUI;
+import LoginPage.Main;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
@@ -17,24 +19,23 @@ public class SideBar {
     private JTabbedPane tp;
     private JPanel sidePanel, btnPanel, subTp1, subTp2;
     private JButton menu;
-    private JLabel text1, text2;
+    private JLabel text2;
     private DrawerController drawer;
     public SideBar() {
         frame = new JFrame();
         frame.setLayout(null);
 
         sidePanel = new JPanel();
-        sidePanel.setBackground(new Color(38, 62, 110));
-        sidePanel.setBounds(0, 0, 100, 720);
+        sidePanel.setBackground(new Color(177, 194, 229));
+        sidePanel.setBounds(0, 0, 720, 1280);
         tp = new JTabbedPane();
         subTp1 = new JPanel();
         subTp1.setLayout(new BorderLayout());
         subTp2 = new JPanel();
-        subTp1.setBackground(Color.GREEN);
         subTp1.add(new SelectRestaurant().getMainPanel(), BorderLayout.CENTER);
         subTp2.setBackground(Color.RED);
-        tp.add("test1", subTp1);
-        tp.add("test2", subTp2);
+        tp.add("Store", subTp1);
+        tp.add("Queue", subTp2);
         tp.setBounds(100, -35, 1150, 720);
 
 //        text1 = new JLabel("text1");
@@ -43,12 +44,14 @@ public class SideBar {
         subTp2.add(text2);
 
         drawer = Drawer.newDrawer(frame)
+//                .drawerBackground(new Color(177, 194, 229))
+                .drawerWidth(200)
                 .header(new JLabel("Header"))
-                .separator(2, Color.BLACK)
+                .separator(2, Color.WHITE)
                 .enableScroll(true)
                 .addChild(new DrawerItem("Store").build())
                 .addChild(new DrawerItem("Queue").build())
-                .addFooter(new DrawerItem("Account").build())
+                .addFooter(new DrawerItem("Log-Out").build())
                 .event(new EventDrawer() {
                     @Override
                     public void selected(int i, DrawerItem drawerItem) {
@@ -57,19 +60,29 @@ public class SideBar {
                             tp.setSelectedIndex(0);
                         } else if (i == 1) {
                             tp.setSelectedIndex(1);
+                        } else if (i == 2) {
+                            int option = JOptionPane.showOptionDialog(null, "Are you sure to logout?", "LogOut", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, 0);
+                            if (option == 0) {
+                                Main main = new Main();
+                                frame.dispose();
+                            } else {
+                                drawer.hide();
+                            }
+
                         }
                     }
                 })
                 .build();
 
         btnPanel = new JPanel();
+//        btnPanel.setBackground(new Color(177, 194, 229));
         btnPanel.setOpaque(false);
-        btnPanel.setBounds(0, 0, 100, 100);
+        btnPanel.setBounds(0, 0, 100, 720);
 
         menu = new JButton("|||");
 
 //        Dimension size = menu.getPreferredSize();
-        menu.setBounds(0, 0, 80, 60);
+        menu.setBounds(0, 0, 95, 60);
         menu.setBorderPainted(false);
         menu.setContentAreaFilled(false);
         menu.setFocusPainted(false);
@@ -77,7 +90,7 @@ public class SideBar {
         menu.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                menu.setForeground(new Color(137, 196, 238));
+                menu.setForeground(new Color(69, 146, 187));
             }
 
             @Override
@@ -100,7 +113,6 @@ public class SideBar {
                 }
             }
         });
-
         frame.add(tp);
         frame.add(btnPanel);
         frame.add(sidePanel);

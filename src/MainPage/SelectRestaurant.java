@@ -13,15 +13,16 @@ public class SelectRestaurant {
         frame = new JFrame("Test");
 
         mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
+        mainPanel.setLayout(null);
 
         tp = new JTabbedPane();
         subTp1 = new JPanel();
         subTp2 = new JPanel();
-        tp.add("Store 1", subTp1);
-        tp.add("Store 2", subTp2);
-
-        mainPanel.add(tp, BorderLayout.CENTER);
+        tp.add("Store A", subTp1);
+        tp.add("Store B", subTp2);
+        tp.setBounds(0, 30, 1150, 720);
+        mainPanel.add(tp);
+        mainPanel.setBackground(new Color(177, 194, 229));
         frame.add(mainPanel);
 
 //        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
