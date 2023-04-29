@@ -1,3 +1,5 @@
+package Testing;
+
 import ian.SideMenuPanel;
 
 /*

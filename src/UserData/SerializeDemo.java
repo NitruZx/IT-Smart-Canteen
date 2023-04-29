@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class SerializeDemo {
     public SerializeDemo() {
-        readText();
+        writeByte();
     }
     public void writeObject() {
         Account account = new Account();
@@ -20,6 +20,17 @@ public class SerializeDemo {
             System.out.println("Serialized data");
         } catch (IOException i) {
             i.printStackTrace();
+        }
+    }
+    public void writeByte() {
+        String str = "Hello Kat";
+        try (FileOutputStream fout = new FileOutputStream("TestBye.dat")) {
+            for (int i = 0; i< str.length();i++) {
+                fout.write(str.charAt(i));
+            }
+            System.out.println("Done!");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     public void readObject() {

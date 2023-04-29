@@ -10,7 +10,7 @@ public class SelectRestaurant {
     private JPanel mainPanel, subTp1, subTp2;
     private JTabbedPane tp;
     public SelectRestaurant() {
-        frame = new JFrame("Test");
+        frame = new JFrame("Testing.Test");
 
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
@@ -22,7 +22,7 @@ public class SelectRestaurant {
         tp.add("Store B", subTp2);
         tp.setBounds(0, 30, 1150, 720);
         mainPanel.add(tp);
-        mainPanel.setBackground(new Color(177, 194, 229));
+        mainPanel.setBackground(new Color(103, 149, 210));
         frame.add(mainPanel);
 
 //        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

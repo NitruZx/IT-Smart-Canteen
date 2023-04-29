@@ -42,7 +42,7 @@ public class LoginGUI {
         subPanel3 = new JPanel();
 
 
-        testtext = new JLabel("test");
+        testtext = new JLabel("");
         testtext.setBounds(50, 50, 50, 50);
         frame.add(testtext);
 
@@ -66,7 +66,7 @@ public class LoginGUI {
 
         logBut = new JButton("Login");
         subPanel3.add(logBut);
-        createBut = new JButton("Create Account");
+        createBut = new JButton("Sign Up");
         createBut.setBorder(new EmptyBorder(0, 10, 5, 10));
 
         tabbedPane = new JTabbedPane();
