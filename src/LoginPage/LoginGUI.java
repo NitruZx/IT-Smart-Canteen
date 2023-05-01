@@ -9,11 +9,11 @@ import javax.swing.border.EmptyBorder;
 public class LoginGUI {
     HashMap<String, String> loginInfo = new HashMap<String, String>();
     protected JTabbedPane tabbedPane;
-    protected JFrame frame;
+    public JFrame frame;
     protected JLabel app_Name, testtext;
-    protected JTextField nameField;
-    protected JPasswordField passField;
-    protected JButton logBut, createBut;
+    public JTextField nameField;
+    public JPasswordField passField;
+    public JButton logBut, createBut;
     protected JPanel subPanel1, subPanel2, subPanel3, centralP, textP1, textP2, subTabPane1,
                 subTapPane2;
     public LoginGUI(HashMap<String, String> originInfo) {
@@ -121,27 +121,6 @@ public class LoginGUI {
                 }
             }
         });
-        logBut.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == logBut) {
-                    String userID = nameField.getText();
-                    String password = String.valueOf(passField.getPassword());
-                    if (loginInfo.containsKey(userID)) {
-                        if (loginInfo.get(userID).equals(password)) {
-                            testtext.setForeground(Color.GREEN);
-                            testtext.setText("Success");
-                        } else {
-                            testtext.setForeground(Color.RED);
-                            testtext.setText("Wrong Password");
-                        }
-                    } else {
-                        testtext.setForeground(Color.YELLOW);
-                        testtext.setText("Name not Found");
-                    }
-                }
-            }
-        });
         logBut.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -175,7 +154,11 @@ public class LoginGUI {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         }
-//    public static void main(String[] args) {
+
+    public JFrame getFrame() {
+        return frame;
+    }
+    //    public static void main(String[] args) {
 //        try {
 //            UIManager.setLookAndFeel(new FlatMacDarkLaf());
 //        } catch (Exception e) {

@@ -1,5 +1,6 @@
 package MainPage;
 
+import LoginPage.LoginController;
 import LoginPage.LoginGUI;
 import LoginPage.Main;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
@@ -61,7 +62,6 @@ public class SideBar {
 //        logOuttBtn.setEffectColor(new Color(250, 152, 132));
 
         drawer = Drawer.newDrawer(frame)
-                .drawerBackground(color)
                 .drawerWidth(200)
                 .header(new JLabel("Header"))
                 .separator(2, Color.WHITE)
@@ -82,7 +82,7 @@ public class SideBar {
                         } else if (i == 2) {
                             int option = JOptionPane.showOptionDialog(null, "Are you sure to logout?", "LogOut", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, 0);
                             if (option == 0) {
-                                Main main = new Main();
+                                new Main();
                                 frame.dispose();
                             } else {
                                 drawer.hide();
@@ -150,7 +150,7 @@ public class SideBar {
         return color;
     }
     public static void main(String[] args) {
-        System.setProperty("sun.java2d.uiScale","1.3");
+//        System.setProperty("sun.java2d.uiScale","1.2");
         try {
             UIManager.setLookAndFeel(new FlatMacLightLaf());
         } catch (Exception e) {
