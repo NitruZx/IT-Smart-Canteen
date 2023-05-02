@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class LoginModel {
-    private UserInfo userInfo;
+    public static UserInfo userInfo;
     private LoginGUI loginGUI;
     public LoginModel() {
         userInfo = new UserInfo("", "", "");

@@ -1,8 +1,6 @@
 package MainPage;
 
-import LoginPage.LoginController;
-import LoginPage.LoginGUI;
-import LoginPage.Main;
+import LoginPage.*;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
@@ -16,6 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class SideBar {
+    private LoginModel loginModel;
     private JFrame frame;
     private JTabbedPane tp;
     private JPanel sidePanel, btnPanel, subTp1, subTp2, mainPanel;
@@ -24,7 +23,11 @@ public class SideBar {
     private DrawerController drawer;
     private DrawerItem storeBtn, queueBtn, logOuttBtn;
     private final Color color = new Color(103, 149, 210);
+
     public SideBar() {
+        this("");
+    }
+    public SideBar(String username) {
         frame = new JFrame("Kin Sabye");
         frame.setLayout(new BorderLayout());
         mainPanel = new JPanel();
@@ -63,7 +66,7 @@ public class SideBar {
 
         drawer = Drawer.newDrawer(frame)
                 .drawerWidth(200)
-                .header(new JLabel("Header"))
+                .header(new JLabel(username, JLabel.CENTER))
                 .separator(2, Color.WHITE)
                 .enableScroll(true)
                 .addChild(storeBtn.build())

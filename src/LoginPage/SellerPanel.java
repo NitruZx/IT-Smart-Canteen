@@ -41,7 +41,7 @@ public class SellerPanel {
             public void focusGained(FocusEvent e) {
                 if (username.getText().equals("Enter-Owner-ID")) {
                     username.setText("");
-                    username.setForeground(Color.WHITE);
+                    username.setForeground(Color.BLACK);
                 }
             }
 
@@ -58,7 +58,7 @@ public class SellerPanel {
             public void focusGained(FocusEvent e) {
                 if (password.getText().equals("Password")) {
                     password.setText("");
-                    password.setForeground(Color.WHITE);
+                    password.setForeground(Color.BLACK);
                 }
             }
 

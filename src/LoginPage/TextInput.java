@@ -121,13 +121,4 @@ public class TextInput extends LoginGUI{
         });
     }
 
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(new FlatMacDarkLaf());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        UserInfo userInfo = new UserInfo();
-        new TextInput(userInfo.getLoginfo());
-    }
 }

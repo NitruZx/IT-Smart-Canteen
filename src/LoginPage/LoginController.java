@@ -32,7 +32,7 @@ public class LoginController implements ActionListener,  MouseListener {
             if (loginModel.readObject(name)) {
                 if (loginModel.getUserInfo().getPassword().equals(password)) {
                     JOptionPane.showMessageDialog(null, "Login Success", "Login", JOptionPane.PLAIN_MESSAGE);
-                    new SideBar();
+                    SideBar sideBar = new  SideBar(loginModel.getUserInfo().getName());
                     loginGUI.frame.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "wrong password", "Login", JOptionPane.ERROR_MESSAGE);

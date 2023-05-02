@@ -14,7 +14,6 @@ public class SignUpPageModel {
                 ObjectOutputStream objectOut = new ObjectOutputStream(fOut);
                 objectOut.writeObject(userInfo);
                 objectOut.close(); fOut.close();
-                System.out.println("Serialized data");
                 return true;
             } catch (IOException i) {
                 return false;

@@ -23,6 +23,7 @@ public class Main {
         new LoginController();
     }
     public static void main(String[] args) {
+        System.setProperty("sun.java2d.uiScale","1.2");
         try {
             UIManager.setLookAndFeel(new FlatMacLightLaf());
         } catch (Exception e) {
