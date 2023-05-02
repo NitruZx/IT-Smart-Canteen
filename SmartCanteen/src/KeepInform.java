@@ -1,4 +1,5 @@
 
+import Main.inform;
 import java.io.*;
 
 public class KeepInform extends inform {

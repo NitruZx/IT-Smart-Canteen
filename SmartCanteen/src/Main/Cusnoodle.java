@@ -1,5 +1,7 @@
 package Main;
 
+import com.formdev.flatlaf.icons.FlatCapsLockIcon;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerIJTheme;
 import java.awt.BorderLayout;
 import java.awt.CheckboxGroup;
 import java.awt.Color;
@@ -33,7 +35,7 @@ public class Cusnoodle {
     //public final JCheckBox topping1, topping2, topping3, topping4, topping5, topping6, topping7, topping8, topping9, topping10, egg1;
     //public final JCheckBox egg1;
 //    public String menuList[] = {"เย็นตาโฟ", "ก๋วยเตี๋ยวเรือ", "ก๋วยเตี๋ยวต้มยำ", "ก๋วยเตี๋ยวน้ำใส"};
-    public String Toping[] = {"หมูเด้งดึ๋งๆ ", "หมูตุ๋นหุง อุ่น ตุ๋น ต้ม นึ่ง ", "หมูชิ้น ชา", "หมูกรุบกรอบ", "หมูแดงมาก", "เนื้อออสซี่", "ไข่ไก่อารมณ์ดี", "เกี๊ยวหมูทอด", "แคปหมูจากสุพัน", "เนื้อฮิปโปทอด"};
+    public String Toping[] = {"หมูเด้งดึ๋งๆ ", "หมูตุ๋นหุง อุ่น ตุ๋น ต้ม นึ่ง ", "หมูชิ้น ชา", "หมูกรุบกรอบ", "หมูแดงมาก", "เนื้อออสซี่", "หมึกสาย ช้า เสียเวลา", "เกี๊ยวหมูทอด", "แคปหมูจากสุพัน", "เนื้อฮิปโปทอด"};
     public String Egg[] = {"ไข่ไก่จากแม่ไก่อารมณ์ดี", "ไข่เป็ดจากแม่เป็ดอารมณ์เสีย", "ไข่ไก่กำพร้าแม่"};
     public JCheckBox[] Ind = new JCheckBox[Toping.length], eggBoxs = new JCheckBox[Egg.length];
     public final JTextField comment;
@@ -50,9 +52,9 @@ public class Cusnoodle {
         namestore = new JLabel("ก๋วยเตี๋ยวป้าแจ๋วสุดจ๊าบ ก๊าบๆ คือเสียงเป็ด", JLabel.CENTER);
         DCtion1 = new JLabel("กรุณาเลือกชนิดของประเภทก๋วยเตี๋ยว");
         DCtion2 = new JLabel("กรุณาเลือกชนิดของเส้น");
-        DCtion3 = new JLabel("กรุณาเลือกวัตถุดิบ");
-        DCtion4 = new JLabel("จะใส่ไหมไข่อะ?");
-        DCtion5 = new JLabel("พิเศษ หรือ ดา");
+        DCtion3 = new JLabel("กรุณาเลือกวัตถุดิบ 2 อย่าง 40 บาท วัตถุดิบต่อไปบวกชนิดละ 20 บาท");
+        DCtion4 = new JLabel("จะใส่ไหมไข่อะ? ฝองละ 35 บาท");
+        DCtion5 = new JLabel("ดา หรือ พิเศษบวกเพิ่ม 15 บาท");
         DCtion6 = new JLabel("อื่นๆ");
         manu = new JComboBox();
         bk = new JButton("ตะกร้าจ้า");
@@ -80,7 +82,7 @@ public class Cusnoodle {
         lGroup.add(line5);
 
         ButtonGroup SpcGroup = new ButtonGroup();
-            SpcGroup.add(spc1);
+        SpcGroup.add(spc1);
         SpcGroup.add(spc2);
 
         comment = new JTextField();
@@ -270,7 +272,14 @@ public class Cusnoodle {
         frame.setSize(1024, 768);
 
     }
-
+        public static void main(String[] args){
+        try {
+            UIManager.setLookAndFeel(new FlatMaterialDarkerIJTheme());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        new Cusnoodle();
+    }
     public JButton getBk() {
         return bk;
     }
