@@ -3,10 +3,11 @@ package DataCall2;
 
 import java.io.Serializable;
 
-public class MenuKeeping2 implements Serializable{
+public class MenuKeeping2 implements Serializable {
     public String TypeMenu, LineMenu, ind ,egg, comnent;
     public boolean  option;
     public int order;
+    public int money;
     
     public MenuKeeping2(){
         this("","", "", "", false);
@@ -26,6 +27,14 @@ public class MenuKeeping2 implements Serializable{
     }
     public MenuKeeping2(String TypeMenu, String LineMenu, String ind,boolean option){
         this(TypeMenu, LineMenu, ind, "", true);
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
     }
 
     public String getTypeMenu() {

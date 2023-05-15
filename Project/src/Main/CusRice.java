@@ -1,3 +1,4 @@
+package Main;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -18,11 +19,11 @@ public class CusRice {
 
     private JFrame f;
     private JPanel mainPN, pn1, pn2, pn3, pn4, pn5, pn6, pn7, pn8, pnMeat, pnChMenu, pnComment, pnEgg, pnSpe, nullpn1, nullpn2, nullpn3, nullpn4, nullpn5, nullpn6, nullpn7, btnPanel;
-    private JButton bk, ad, book;
+    public JButton bk, ad, book;
     private JLabel name, chMeat, chMenu, txtComment, adEgg, adSpe;
-    private JTextField menu;
-    private JTextArea comment;
-    private JRadioButton omelette, friedegg, boiledegg, normal, spe, examMeat;
+    public JTextField menu;
+    public JTextArea comment;
+    public JRadioButton omelette, friedegg, boiledegg, normal, spe, examMeat;
     private Font titleFont, content, box;
     public String[] meat = {"หมูกรอบ", "หมูสับ", "หมูชิ้น", "ไก่", "ปลาหมึก", "กุ้ง", "เนื้อวัว", "เบคอน"};
     public JRadioButton[] meatBoxes = new JRadioButton[meat.length];
@@ -191,3 +192,4 @@ public class CusRice {
         new CusRice();
     }
 }
+

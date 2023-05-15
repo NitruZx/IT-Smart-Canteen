@@ -7,23 +7,23 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class CallingMenu2 extends MenuKeeping2 implements DataMain.DataBase{
-        
+public class CallingMenu2{
+        private MenuKeeping2 menuKeeping2;
     public CallingMenu2(){
-        writeMenu();
-        readMenu();
+//        writeMenu();
+//        readMenu();
         
     }
 
-    @Override
-    public void writeMenu() {
-        MenuKeeping2 menuKeeping2 = new MenuKeeping2();
-        menuKeeping2.setTypeMenu("Yum");
-        menuKeeping2.setLineMenu("small");
-        menuKeeping2.setInd("หกฟก ฟหกหฟก ฟหกฟหก ฟหกฟก ฟหกฟก");
-        menuKeeping2.setEgg("");
-        menuKeeping2.setOption(true);
-        menuKeeping2.setComnent("");
+    public void writeMenu(MenuKeeping2 menuKeeping2) {
+//        MenuKeeping2 menuKeeping2 = new MenuKeeping2();
+        menuKeeping2.setTypeMenu(menuKeeping2.getTypeMenu());
+        menuKeeping2.setLineMenu(menuKeeping2.getLineMenu());
+        menuKeeping2.setInd(menuKeeping2.getInd());
+        menuKeeping2.setEgg(menuKeeping2.getEgg());
+        menuKeeping2.setOption(menuKeeping2.isOption());
+        menuKeeping2.setComnent(menuKeeping2.getComnent());
+        menuKeeping2.setMoney(menuKeeping2.getMoney());
         try {
             FileOutputStream fOut = new FileOutputStream("C:\\\\Users\\\\Kanitphong\\\\Desktop\\\\StoreB.txt");
             ObjectOutputStream oout = new ObjectOutputStream(fOut);
@@ -36,7 +36,7 @@ public class CallingMenu2 extends MenuKeeping2 implements DataMain.DataBase{
         }
     }
 
-    @Override
+//    @Override
     public void readMenu() {
         MenuKeeping2 menuKeeping = null;
         try {
@@ -49,12 +49,13 @@ public class CallingMenu2 extends MenuKeeping2 implements DataMain.DataBase{
         } catch (ClassNotFoundException c) {
             c.printStackTrace();
         }
-        System.out.println("Menu is");
-        System.out.println("Name : "+menuKeeping.getTypeMenu());
-        System.out.println("Name : "+menuKeeping.getLineMenu());
+        System.out.println("NameType : "+menuKeeping.getTypeMenu());
+        System.out.println("Line : "+menuKeeping.getLineMenu());
         System.out.println("Ind : "+menuKeeping.getInd());
         System.out.println("egg : "+menuKeeping.getEgg());
+        System.out.println("Option :"+menuKeeping.isOption());
         System.out.println("Option :"+menuKeeping.getComnent());
+        System.out.println("Money :"+menuKeeping.getMoney());
     }
     public static void main(String[] args) {
         new CallingMenu2();
