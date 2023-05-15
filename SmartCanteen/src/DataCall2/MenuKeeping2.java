@@ -17,7 +17,7 @@ public class MenuKeeping2 implements Serializable {
         this.LineMenu = LineMenu;
         this.ind = ind;
         this.egg = egg;
-        this.option = true;
+        this.option = false;
     }
     public MenuKeeping2(String TypeMenu, String LineMenu, String ind){
         this(TypeMenu, LineMenu, ind,"", false);
@@ -32,7 +32,6 @@ public class MenuKeeping2 implements Serializable {
     public int getMoney() {
         return money;
     }
-
     public void setMoney(int money) {
         this.money = money;
     }
@@ -73,11 +72,10 @@ public class MenuKeeping2 implements Serializable {
     public void setComnent(String comnent) {
         this.comnent = comnent;
     }
-    public void setOption(boolean option) {
-        this.option = option;
+    public void setOption(boolean b) {
+        this.option = b;
     }
     public void setOrder(int order) {
         this.order = order;
     }
-    
 }

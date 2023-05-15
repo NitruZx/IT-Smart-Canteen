@@ -12,9 +12,7 @@ public class CallingMenu2{
     public CallingMenu2(){
 //        writeMenu();
 //        readMenu();
-        
     }
-
     public void writeMenu(MenuKeeping2 menuKeeping2) {
 //        MenuKeeping2 menuKeeping2 = new MenuKeeping2();
         menuKeeping2.setTypeMenu(menuKeeping2.getTypeMenu());
@@ -30,7 +28,6 @@ public class CallingMenu2{
             oout.writeObject(menuKeeping2);
             oout.close();
             fOut.close();
-            System.out.println("Menu is succed");
         } catch (IOException i) {
             i.printStackTrace();
         }

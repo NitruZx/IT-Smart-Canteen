@@ -36,7 +36,7 @@ public class Bill extends inform {
         date = new JLabel("Date : " +showDate(), JLabel.LEFT); date.setBorder(new EmptyBorder(0, 10, 0, 10)); date.setFont(billFont);
         time = new JLabel("Time : " +showTime(), JLabel.RIGHT); time.setFont(billFont);
         menu = new JPanel(new GridLayout(3, 2));
-        menulist = new JLabel(menuKeeping2.getTypeMenu());
+        menulist = new JLabel();
         
         menu.add(menulist);
         menuHead = new JLabel("Menu", JLabel.LEFT); menuHead.setBorder(new EmptyBorder(0, 10, 0, 10)); menuHead.setFont(billFont);

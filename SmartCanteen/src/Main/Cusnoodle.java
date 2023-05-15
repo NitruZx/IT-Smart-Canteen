@@ -52,8 +52,8 @@ public class Cusnoodle {
         namestore = new JLabel("ก๋วยเตี๋ยวป้าแจ๋วสุดจ๊าบ ก๊าบๆ คือเสียงเป็ด", JLabel.CENTER);
         DCtion1 = new JLabel("กรุณาเลือกชนิดของประเภทก๋วยเตี๋ยว");
         DCtion2 = new JLabel("กรุณาเลือกชนิดของเส้น");
-        DCtion3 = new JLabel("กรุณาเลือกวัตถุดิบ 2 อย่าง 40 บาท วัตถุดิบต่อไปบวกชนิดละ 20 บาท");
-        DCtion4 = new JLabel("จะใส่ไหมไข่อะ? ฝองละ 35 บาท");
+        DCtion3 = new JLabel("กรุณาเลือกวัตถุดิบ 1 อย่าง 40 บาท วัตถุดิบต่อไปบวกชนิดละ 20 บาท");
+        DCtion4 = new JLabel("จะใส่ไหมไข่อะ? ฝองละ 10 บาท");
         DCtion5 = new JLabel("ดา หรือ พิเศษบวกเพิ่ม 15 บาท");
         DCtion6 = new JLabel("อื่นๆ");
         manu = new JComboBox();
@@ -61,7 +61,7 @@ public class Cusnoodle {
         ad = new JButton("เพิ่มเมนูป่าว");
         book = new JButton("จอง");
         line1 = new JRadioButton("เส้นหมี่");
-        line2 = new JRadioButton("เสื้อเล็ก");
+        line2 = new JRadioButton("เส้นเล็ก");
         line3 = new JRadioButton("เส้นใหญ่");
         line4 = new JRadioButton("วุ้นเส้น");
         line5 = new JRadioButton("บะหมี่ไข่");
@@ -269,6 +269,7 @@ public class Cusnoodle {
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(bk);
         frame.setSize(1024, 768);
 
     }
