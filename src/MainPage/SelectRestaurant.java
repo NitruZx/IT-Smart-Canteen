@@ -20,9 +20,9 @@ public class SelectRestaurant {
         subTp2 = new JPanel();
         tp.add("Store A", subTp1);
         tp.add("Store B", subTp2);
-        tp.setBounds(0, 30, 1150, 720);
+        tp.setBounds(0, 0, 1920, 1080);
         mainPanel.add(tp);
-        mainPanel.setBackground(new Color(103, 149, 210));
+//        mainPanel.setBackground(new Color(103, 149, 210));
         frame.add(mainPanel);
 
 //        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

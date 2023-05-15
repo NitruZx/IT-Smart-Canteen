@@ -2,86 +2,93 @@ package MainPage;
 
 import LoginPage.*;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import ian.ModelColor;
+import ian.PanelGradiant;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
 import javaswingdev.drawer.DrawerItem;
 import javaswingdev.drawer.EventDrawer;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SideBar {
+public class MainFrame {
     private LoginModel loginModel;
     private JFrame frame;
-    private JTabbedPane tp;
-    private JPanel sidePanel, btnPanel, subTp1, subTp2, mainPanel;
+    private JPanel btnPanel, mainPanel, page1, page2;
     private JButton menu;
-    private JLabel text2;
     private DrawerController drawer;
     private DrawerItem storeBtn, queueBtn, logOuttBtn;
-    private final Color color = new Color(103, 149, 210);
+    private PanelGradiant panelGradiant;
+    private CardLayout cardLayout = new CardLayout();
+    private final Color color = new Color(79, 69, 87);
 
-    public SideBar() {
+    public MainFrame() {
         this("");
     }
-    public SideBar(String username) {
+    public MainFrame(String username) {
         frame = new JFrame("Kin Sabye");
         frame.setLayout(new BorderLayout());
+
+        //create CardLayout
         mainPanel = new JPanel();
-        mainPanel.setLayout(null);
+        mainPanel.setLayout(cardLayout);
 
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int) screenSize.getWidth();
-        int height = (int) screenSize.getHeight();
-        sidePanel = new JPanel();
-        sidePanel.setBackground(color);
-        sidePanel.setBounds(0, 0, width, height);
-        tp = new JTabbedPane();
-        subTp1 = new JPanel();
-        subTp1.setLayout(new BorderLayout());
-        subTp2 = new JPanel();
-        subTp1.add(new SelectRestaurant().getMainPanel(), BorderLayout.CENTER);
-        subTp2.setBackground(Color.WHITE);
-        tp.add("Store", subTp1);
-        tp.add("Queue", subTp2);
-        tp.setBounds(100, -35, 1150, 720);
+        page1 = new JPanel();page1.setBackground(Color.RED);
+        page2 = new JPanel();page2.setBackground(Color.BLUE);
+        mainPanel.add(page1, "1");
+        mainPanel.add(page2, "2");
+        cardLayout.show(mainPanel, "1");
 
-//        text1 = new JLabel("text1");
-        text2 = new JLabel("text2");
-//        subTp1.add(text1);
-        subTp2.add(text2);
+        ImageIcon icon = new ImageIcon("src/MainPage/menu3.png");
+        Image img = icon.getImage();
+        Image newimg = img.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon menuIcon = new ImageIcon(newimg);
+
+        ImageIcon icon2 = new ImageIcon("src/MainPage/store.png");
+        Image img2 = icon2.getImage();
+        Image newimg2 = img2.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+        ImageIcon storeIcon = new ImageIcon(newimg2);
+
+        ImageIcon icon3 = new ImageIcon("src/MainPage/queue.png");
+        Image img3 = icon3.getImage();
+        Image newimg3 = img3.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+        ImageIcon queueIcon = new ImageIcon(newimg3);
+
+        ImageIcon icon4 = new ImageIcon("src/MainPage/logout.png");
+        Image img4 = icon4.getImage();
+        Image newimg4 = img4.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+        ImageIcon logoutIcon = new ImageIcon(newimg4);
+
+        panelGradiant = new PanelGradiant();
+        panelGradiant.addColor(new ModelColor(new Color(79, 69, 87), 0.2f),
+                new ModelColor(new Color(79, 69, 87), 0.7f), new ModelColor(new Color(57, 54, 70), 1f));
+        panelGradiant.setPreferredSize(new Dimension(0, 100));
         storeBtn = new DrawerItem("Store");
         queueBtn = new DrawerItem("Queue");
         logOuttBtn = new DrawerItem("Log Out");
 
         storeBtn.setForeground(Color.BLACK);
-//        storeBtn.setEffectColor(new Color(250, 152, 132));
         queueBtn.setForeground(Color.BLACK);
-//        queueBtn.setEffectColor(new Color(250, 152, 132));
         logOuttBtn.setForeground(Color.BLACK);
-//        logOuttBtn.setEffectColor(new Color(250, 152, 132));
 
         drawer = Drawer.newDrawer(frame)
                 .drawerWidth(200)
                 .header(new JLabel(username, JLabel.CENTER))
-                .separator(2, Color.WHITE)
+                .space(10)
+//                .separator(2, Color.WHITE)
                 .enableScroll(true)
-                .addChild(storeBtn.build())
-                .addChild(queueBtn.build())
-                .addFooter(logOuttBtn.build())
+                .addChild(storeBtn.icon(storeIcon).iconTextGap(30).build())
+                .addChild(queueBtn.icon(queueIcon).iconTextGap(30).build())
+                .addFooter(logOuttBtn.icon(logoutIcon).iconTextGap(20).build())
                 .event(new EventDrawer() {
                     @Override
                     public void selected(int i, DrawerItem drawerItem) {
-                        System.out.println(i);
                         if (i == 0) {
-                            tp.setSelectedIndex(0);
-//                            drawer.hide();
+                            cardLayout.show(mainPanel, "1");
                         } else if (i == 1) {
-                            tp.setSelectedIndex(1);
-//                            drawer.hide();
+                            cardLayout.show(mainPanel, "2");
                         } else if (i == 2) {
                             int option = JOptionPane.showOptionDialog(null, "Are you sure to logout?", "LogOut", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, 0);
                             if (option == 0) {
@@ -97,29 +104,15 @@ public class SideBar {
                 .build();
 
         btnPanel = new JPanel();
-//        btnPanel.setBackground(new Color(177, 194, 229));
         btnPanel.setOpaque(false);
-        btnPanel.setBounds(0, 0, 100, 720);
+        btnPanel.setBounds(0, 0, 300, 720);
 
-        menu = new JButton("|||");
-
-//        Dimension size = menu.getPreferredSize();
-        menu.setBounds(0, 0, 95, 60);
+        menu = new JButton(menuIcon);
+        menu.setBounds(10, 20, 95, 60);
         menu.setBorderPainted(false);
         menu.setContentAreaFilled(false);
         menu.setFocusPainted(false);
         menu.setForeground(Color.WHITE);
-        menu.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                menu.setForeground(new Color(15, 77, 210));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                menu.setForeground(UIManager.getColor("control"));
-            }
-        });
 
         btnPanel.setLayout(null);
         btnPanel.add(menu);
@@ -135,17 +128,15 @@ public class SideBar {
                 }
             }
         });
-        mainPanel.add(tp);
-        mainPanel.add(btnPanel);
-        mainPanel.add(sidePanel);
+        panelGradiant.add(btnPanel);
+
+        frame.add(panelGradiant, BorderLayout.NORTH);
         frame.add(mainPanel, BorderLayout.CENTER);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        frame.setResizable(false);
-        frame.setSize(1280, 720);
+
+        frame.setMinimumSize(new Dimension(1280, 720));
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        frame.setUndecorated(true);
-//        frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
@@ -153,12 +144,11 @@ public class SideBar {
         return color;
     }
     public static void main(String[] args) {
-//        System.setProperty("sun.java2d.uiScale","1.2");
         try {
             UIManager.setLookAndFeel(new FlatMacLightLaf());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        new SideBar();
+        new MainFrame();
     }
 }

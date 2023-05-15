@@ -24,6 +24,7 @@ public class SignUpPageModel {
         return false;
     }
 
+
     public UserInfo getUserInfo() {
         return userInfo;
     }

@@ -63,7 +63,7 @@ public class LoginGUI {
 //        nameField.setForeground(Color.GRAY);
 //        passField = new JPasswordField("Password");
 //        passField.setForeground(Color.GRAY);
-        subPanel2.setBorder(new EmptyBorder(0, 30, 0, 30));
+        subPanel2.setBorder(new EmptyBorder(0, 30, 20, 30));
 //        nameField.setBorder(BorderFactory.createTitledBorder("Student-ID"));
 //        passField.setBorder(BorderFactory.createTitledBorder("Password"));
 //        textP1.setBorder(BorderFactory.createTitledBorder("Student-ID"));
@@ -90,7 +90,7 @@ public class LoginGUI {
         subTapPane2.setLayout(new BorderLayout());
         subTapPane2.add(new SellerPanel().getCenterMain(), BorderLayout.CENTER);
         tabbedPane.add("Client", subTabPane1);
-        tabbedPane.add("Seller", subTapPane2);
+        tabbedPane.add("Admin", subTapPane2);
 
         centralP.add(subPanel1);centralP.add(subPanel2);centralP.add(subPanel3);
 //        centralP.setSize(200, 300);
