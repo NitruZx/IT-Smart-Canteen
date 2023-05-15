@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
 
 public class book {
     private JFrame frame;
@@ -18,7 +20,7 @@ public class book {
     private JLabel topmain, menumain, pricemain, checkmain;
     private JTextArea details;
     private JTextField money;
-    private JRadioButton yes, no;
+    private JButton yes, no;
     private Font title, content, box, guide;
     
     
@@ -38,8 +40,8 @@ pricemain = new JLabel("ราคาอาหารรวม");
 checkmain = new JLabel("ท่านต้องการกดยืนยันออเดอร์หรือไม่");
 details = new JTextArea();
 money = new JTextField();
-yes = new JRadioButton("ตกลงยืนยันออเดอร์");
-no  = new JRadioButton("ไม่ต้องการยืนยันออเดอร์");
+yes = new JButton("ตกลงยืนยันออเดอร์");
+no  = new JButton("ไม่ต้องการยืนยันออเดอร์");
 title = new Font("MNW PidTermLaew", Font.BOLD, 30);
 content = new Font("MNW PidTermLaew", Font.PLAIN, 17);
 box = new Font("MNW PidTermLaew", Font.BOLD, 22);
@@ -81,11 +83,13 @@ pn6.add(checkmain);
 checkmain.setFont(content);
 
 pn7.setLayout(new GridLayout(1, 2));
+pn7.setBorder(new EmptyBorder(0, 15, 10, 15));
 pn7.add(yes);
 //pn7.add(pn8);
 pn7.add(no);
 yes.setFont(content);
 no.setFont(content);
+
 
 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 frame.setVisible(true);
